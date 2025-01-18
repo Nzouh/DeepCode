@@ -20,7 +20,7 @@ def process_file(filename, output_file):
     """
     Process a file line by line, ignoring Android keys and irrelevant lines.
     """
-    with open(filename, "r") as file, open(output_file, "w") as out:
+    with open(filename, "r", encoding="utf-8") as file, open(output_file, "w", encoding="utf-8") as out:
         record = ""  # Buffer to store the current URL or multi-line record
         for line in file:
             line = line.strip()
@@ -52,4 +52,5 @@ def process_record(record, out):
             url = url_prefix + url
             out.write(f"{url}:anonymous_user:anonymous_password\n")
 
-
+if __name__ == "__main__":
+    process_file(filename, "processed_file.txt")
