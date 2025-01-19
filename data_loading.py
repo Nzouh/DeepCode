@@ -1,7 +1,7 @@
-import faker as fake
+from faker import Faker
+fake = Faker()
 import re
 
-filename = "sample.txt"
 
 
 def is_android_key(line):
@@ -20,7 +20,7 @@ def process_file(filename, output_file):
     """
     Process a file line by line, ignoring Android keys and irrelevant lines.
     """
-    with open(filename, "r") as file, open(output_file, "w") as out:
+    with open(filename, "r", encoding="utf-8") as file, open(output_file, "w", encoding="utf-8") as out:
         record = ""  # Buffer to store the current URL or multi-line record
         for line in file:
             line = line.strip()
@@ -50,6 +50,7 @@ def process_record(record, out):
         if ":" in rest_of_record:
             url, credentials = rest_of_record.split(":", 1)
             url = url_prefix + url
-            out.write(f"{url}:anonymous_user:anonymous_password\n")
-
+            first_name = fake.first_name()
+            last_name = fake.last_name()
+            out.write(f"{url}:{first_name}:{last_name}\n")
 
