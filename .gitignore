@@ -90,8 +90,8 @@ target/
 profile_default/
 ipython_config.py
 s
-#sql files:
-breached_data.sql
+
+
 
 #vscode
 .vscode/
