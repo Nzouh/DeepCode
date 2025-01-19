@@ -2,7 +2,6 @@ from faker import Faker
 fake = Faker()
 import re
 
-filename = "sample.txt"
 
 
 def is_android_key(line):
@@ -55,5 +54,3 @@ def process_record(record, out):
             last_name = fake.last_name()
             out.write(f"{url}:{first_name}:{last_name}\n")
 
-if __name__ == "__main__":
-    process_file(filename, "processed_file.txt")
