@@ -1,4 +1,5 @@
-import faker as fake
+from faker import Faker
+fake = Faker()
 import re
 
 filename = "sample.txt"
@@ -50,7 +51,9 @@ def process_record(record, out):
         if ":" in rest_of_record:
             url, credentials = rest_of_record.split(":", 1)
             url = url_prefix + url
-            out.write(f"{url}:anonymous_user:anonymous_password\n")
+            first_name = fake.first_name()
+            last_name = fake.last_name()
+            out.write(f"{url}:{first_name}:{last_name}\n")
 
 if __name__ == "__main__":
     process_file(filename, "processed_file.txt")

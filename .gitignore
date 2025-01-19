@@ -9,6 +9,7 @@ __pycache__/
 
 #txt files
 *processed_file.txt
+.txt
 
 # Distribution / packaging
 .Python
